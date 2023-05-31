@@ -20,7 +20,16 @@ app.use(express.static("public"));
 
 
 app.get("/" , function (req, res) {
-  res.render("home", {StartingContent: homeStartingContent});
+  res.render("home", {StartingContent: homeStartingContent , posİte: items });
+});
+app.post('/', (req, res) => {
+  var post = {
+    title: req.body.mdeger,
+    body: req.body.zdeger
+  };
+  items.push(post);
+  console.log(post);
+  res.redirect('/');
 });
 
 app.get("/about" , function (req, res) {
