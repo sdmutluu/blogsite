@@ -21,6 +21,10 @@ app.get("/" , function (req, res) {
   res.render("home", {StartingContent: homeStartingContent, posİte: items});
 });
 
+app.get("/postName" , function (req, res) {
+  res.render("postName", {StartingContent: homeStartingContent, posİte: items});
+});
+
 app.get("/contact" , function (req, res) {
   res.render("contact", {contactC: contactContent});
 });
@@ -31,11 +35,14 @@ app.get("/about" , function (req, res) {
 
 app.get("/items/:postName" , function (req, res) {
   const requestedPost = _.kebabCase(req.params.postName); // Parametreyi kebab case'e dönüştür
-
+  f
   items.forEach(function (post) {
     const stTitle = _.kebabCase(post.title); // Başlığı kebab case'e dönüştür
     if (stTitle === requestedPost) {
-      console.log("Eşleşti");
+        res.render("post", { 
+        title: post.title,
+        body : post.body
+      });
     }
   });
 });
