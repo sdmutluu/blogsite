@@ -30,16 +30,16 @@ app.get("/about" , function (req, res) {
 });
 
 app.get("/items/:postName" , function (req, res) {
-  const requestedPost = req.params.postName;
+  const requestedPost = _.kebabCase(req.params.postName); // Parametreyi kebab case'e dönüştür
 
   items.forEach(function (post) {
-    const stTitle =post.title
+    const stTitle = _.kebabCase(post.title); // Başlığı kebab case'e dönüştür
     if (stTitle === requestedPost) {
-      
-      console.log("eşleşti")
+      console.log("Eşleşti");
     }
   });
 });
+
 
 app.get("/compose" , function (req, res) {
   res.render("compose");
