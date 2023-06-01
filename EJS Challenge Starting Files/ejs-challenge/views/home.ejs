@@ -13,15 +13,14 @@
     <p><%= StartingContent %></p>
 
     <% if (posİte.length > 0) { %>
-        <h2>İçerikler</h2>
-        <ul>
+        
           <% posİte.forEach(function(item) { %>
-            <li>
-              <h3><%= item.title %></h3>
+           
+              <h1><%= item.title %></h3>
               <p><%= item.body %></p>
-            </li>
+            
           <% }); %>
-        </ul>
+       
       <% } else { %>
         <p>Henüz içerik bulunmamaktadır.</p>
       <% } %>
